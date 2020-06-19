@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot name="rack">
+
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="base_link">
+    <collision>
+        <geometry>
+          <mesh filename="package://ur5_notebook/launch/rack.stl" />
+        </geometry>
+    </collision>
+
+    <visual>
+        <geometry>
+          <mesh filename="package://ur5_notebook/launch/rack.stl" />
+        </geometry>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="10.0"/>
+      <inertia
+        ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+<gazebo reference="base_link">
+  <material>Gazebo/White</material>
+  <mu1 value="0.01" />
+  <mu2 value="0.01" />
+</gazebo>
+
+
+</robot>
+
